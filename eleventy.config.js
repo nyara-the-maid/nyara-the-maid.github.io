@@ -4,6 +4,21 @@ export default function (eleventyConfig) {
   // Syntax highlighting via Prism.js (build-time)
   eleventyConfig.addPlugin(syntaxHighlight);
 
+  // Blog posts in date folders: src/blog/YYYY-MM-DD/*.md
+  eleventyConfig.addCollection("posts", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/blog/**/*.md")
+      .sort((a, b) => {
+        // Sort by date descending (newest first)
+        const dateCompare = b.date - a.date;
+        if (dateCompare !== 0) return dateCompare;
+        // Same date: hello-world always first
+        if (a.inputPath.includes("hello-world")) return -1;
+        if (b.inputPath.includes("hello-world")) return 1;
+        // Others: alphabetical
+        return a.inputPath.localeCompare(b.inputPath);
+      });
+  });
+
   // Static images (not CSS — Tailwind CLI handles that)
   eleventyConfig.addPassthroughCopy("src/img");
 

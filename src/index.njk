@@ -30,7 +30,7 @@ layout: base.njk
     </div>
   {% else %}
     <div class="grid gap-6">
-      {% for post in collections.post | reverse %}
+      {% for post in collections.post %}
         <article class="card card-border bg-base-200 hover:shadow-xl transition-shadow">
           <div class="card-body">
             <div class="flex items-center gap-2 text-sm text-base-content/50 mb-1">
