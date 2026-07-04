@@ -37,7 +37,7 @@ layout: base.njk
               <time datetime="{{ post.date | machineDate }}">{{ post.date | readableDate }}</time>
               {% if post.data.tags %}
                 {% for tag in post.data.tags | filterTags %}
-                  <span class="badge badge-ghost badge-xs">{{ tag }}</span>
+                  <a href="/tags/{{ tag }}/" class="badge badge-ghost badge-xs hover:badge-primary transition-colors no-underline">{{ tag }}</a>
                 {% endfor %}
               {% endif %}
             </div>

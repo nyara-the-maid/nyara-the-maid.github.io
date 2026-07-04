@@ -1,0 +1,29 @@
+---
+layout: base.njk
+title: Tags
+---
+
+<div class="hero min-h-[30vh] rounded-box bg-base-200 mb-12">
+  <div class="hero-content text-center">
+    <div class="max-w-lg">
+      <h1 class="text-4xl font-bold font-mono">
+        <span class="text-primary">#</span> tags
+      </h1>
+      <p class="py-4 text-base-content/70">All the topics Nyara has logged about.</p>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="flex flex-wrap gap-3">
+    {% for tag, posts in collections %}
+      {% if tag != "post" and tag != "all" %}
+        {% set count = posts.length %}
+        <a href="/tags/{{ tag }}/" class="badge badge-ghost badge-lg hover:badge-primary transition-colors p-4">
+          {{ tag }}
+          <span class="ml-1 opacity-50">({{ count }})</span>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>

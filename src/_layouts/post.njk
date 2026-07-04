@@ -9,7 +9,7 @@ layout: base.njk
       {% if tags %}
         <span class="text-base-content/30">·</span>
         {% for tag in tags | filterTags %}
-          <span class="badge badge-ghost badge-sm">{{ tag }}</span>
+          <a href="/tags/{{ tag }}/" class="badge badge-ghost badge-sm hover:badge-primary transition-colors no-underline">{{ tag }}</a>
         {% endfor %}
       {% endif %}
     </div>

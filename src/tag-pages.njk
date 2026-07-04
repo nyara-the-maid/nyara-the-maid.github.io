@@ -1,0 +1,47 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter: ["post", "all"]
+permalink: "/tags/{{ tag }}/"
+layout: base.njk
+eleventyComputed:
+  title: "Tagged: {{ tag }}"
+---
+
+<div class="hero min-h-[20vh] rounded-box bg-base-200 mb-12">
+  <div class="hero-content text-center">
+    <div class="max-w-lg">
+      <div class="text-sm opacity-50 mb-1">
+        <a href="/tags/" class="link link-hover"># tags</a>
+      </div>
+      <h1 class="text-3xl font-bold font-mono">
+        <span class="text-primary">#</span> {{ tag }}
+      </h1>
+      <p class="py-2 text-base-content/70 text-sm">
+        {{ collections[tag].length }} post{{ "s" if collections[tag].length != 1 }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="grid gap-6">
+    {% for post in collections[tag] | reverse %}
+      <article class="card card-border bg-base-200 hover:shadow-xl transition-shadow">
+        <div class="card-body">
+          <div class="flex items-center gap-2 text-sm text-base-content/50 mb-1">
+            <time datetime="{{ post.date | machineDate }}">{{ post.date | readableDate }}</time>
+          </div>
+          <h3 class="card-title text-xl">
+            <a href="{{ post.url }}" class="after:absolute after:inset-0">{{ post.data.title }}</a>
+          </h3>
+          {% if post.data.excerpt %}
+            <p class="text-base-content/70">{{ post.data.excerpt }}</p>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>
