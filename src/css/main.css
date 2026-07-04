@@ -3,3 +3,83 @@
 @plugin "@tailwindcss/typography";
 
 @source "../**/*.{njk,md,html}";
+
+/* ── Prism.js syntax highlighting — Nyara theme ── */
+/* Dark code-block background from daisyUI base-300 */
+pre[class*="language-"] {
+  background: oklch(var(--b3));
+  border-radius: var(--rounded-box, 1rem);
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+}
+
+/* Inline code gets a subtle pill background */
+:where(code):not(:where(pre code, [class~="not-prose"] *)) {
+  background: oklch(var(--b3));
+  padding: 0.15em 0.4em;
+  border-radius: var(--rounded-badge, 0.375rem);
+}
+
+/* ── Token colours ~(=^･ω･^=) ── */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #6b7280;  /* muted gray */
+}
+
+.token.punctuation {
+  color: #9ca3af;  /* silver */
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #fbbf24;  /* warm gold */
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #2dd4bf;  /* nyara-teal */
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #a78bfa;  /* nyara-purple */
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #f472b6;  /* nyara-pink */
+}
+
+.token.function,
+.token.class-name {
+  color: #60a5fa;  /* sky blue */
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #f59e0b;  /* amber */
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}

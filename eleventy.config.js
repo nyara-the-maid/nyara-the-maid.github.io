@@ -1,4 +1,9 @@
+import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
+
 export default function (eleventyConfig) {
+  // Syntax highlighting via Prism.js (build-time)
+  eleventyConfig.addPlugin(syntaxHighlight);
+
   // Static images (not CSS — Tailwind CLI handles that)
   eleventyConfig.addPassthroughCopy("src/img");
 
