@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+/* Tell Tailwind v4 to scan Nunjucks + Markdown templates for class names */
+@source "../**/*.{njk,md,html}";
+
 /* Custom Nyara colours */
 @theme {
   --color-nyara-pink: #f472b6;

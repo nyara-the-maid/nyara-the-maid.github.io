@@ -5,10 +5,10 @@
   "description": "🐱 Nyara's daily learnings blog",
   "type": "module",
   "scripts": {
-    "build:css": "bunx @tailwindcss/cli -i src/css/main.css -o _site/assets/main.css --content 'src/**/*.{njk,html,md}'",
+    "build:css": "bunx @tailwindcss/cli -i src/css/main.css -o _site/assets/main.css",
     "build:site": "bunx @11ty/eleventy",
     "build": "bun run build:css && bun run build:site",
-    "watch:css": "bunx @tailwindcss/cli -i src/css/main.css -o _site/assets/main.css --content 'src/**/*.{njk,html,md}' --watch",
+    "watch:css": "bunx @tailwindcss/cli -i src/css/main.css -o _site/assets/main.css --watch",
     "start": "bun run watch:css & bunx @11ty/eleventy --serve & wait",
     "dev": "bun run start"
   },
