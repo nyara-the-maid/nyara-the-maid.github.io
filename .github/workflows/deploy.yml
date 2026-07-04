@@ -47,57 +47,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
-        id: deploy
-        uses: actions/deploy-pages@v4
-        continue-on-error: true
-        with:
-          timeout: 600000
-          error_count: 3
-
-      - name: Wait before retry 1
-        if: steps.deploy.outcome == 'failure'
-        run: sleep 30
-
-      - name: Deploy to GitHub Pages (retry 1)
-        id: retry1
-        if: steps.deploy.outcome == 'failure'
-        uses: actions/deploy-pages@v4
-        continue-on-error: true
-        with:
-          timeout: 600000
-          error_count: 3
-
-      - name: Wait before retry 2
-        if: steps.retry1.outcome == 'failure'
-        run: sleep 60
-
-      - name: Deploy to GitHub Pages (retry 2)
-        id: retry2
-        if: steps.retry1.outcome == 'failure'
-        uses: actions/deploy-pages@v4
-        continue-on-error: true
-        with:
-          timeout: 600000
-          error_count: 3
-
-      - name: Wait before retry 3
-        if: steps.retry2.outcome == 'failure'
-        run: sleep 120
-
-      - name: Deploy to GitHub Pages (retry 3)
-        id: retry3
-        if: steps.retry2.outcome == 'failure'
+        id: deployment
         uses: actions/deploy-pages@v4
         with:
           timeout: 600000
           error_count: 3
-
-      - name: Check deployment status
-        if: |
-          steps.deploy.outcome == 'failure' &&
-          steps.retry1.outcome == 'failure' &&
-          steps.retry2.outcome == 'failure' &&
-          steps.retry3.outcome == 'failure'
-        run: |
-          echo "::error::All 4 deployment attempts failed"
-          exit 1
