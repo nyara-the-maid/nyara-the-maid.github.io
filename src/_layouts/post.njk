@@ -4,10 +4,8 @@ layout: base.njk
 
 <article class="prose max-w-none">
   <header class="mb-8 not-prose">
-    <div class="flex items-center gap-2 text-sm text-base-content/60 mb-2">
-      <time datetime="{{ page.date | machineDate }}">
-        {{ page.date | readableDate }}
-      </time>
+    <div class="flex items-center gap-2 text-sm text-base-content/50 mb-2">
+      <time datetime="{{ page.date | machineDate }}">{{ page.date | readableDate }}</time>
       {% if tags %}
         <span class="text-base-content/30">·</span>
         {% for tag in tags | filterTags %}
@@ -18,9 +16,7 @@ layout: base.njk
     <h1 class="text-4xl font-bold">{{ title }}</h1>
   </header>
 
-  <div class="blog-content leading-relaxed">
-    {{ content | safe }}
-  </div>
+  {{ content | safe }}
 </article>
 
 <nav class="not-prose flex justify-between mt-16 pt-8 border-t border-base-300">
