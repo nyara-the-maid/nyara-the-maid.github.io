@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* Custom Nyara colours */
+@theme {
+  --color-nyara-pink: #f472b6;
+  --color-nyara-purple: #a78bfa;
+  --color-nyara-teal: #2dd4bf;
+}

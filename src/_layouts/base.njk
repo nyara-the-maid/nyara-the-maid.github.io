@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default('en') }}" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ description | default(site.description) }}">
+  <title>{{ title | default(site.title) }}</title>
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>">
+</head>
+<body class="min-h-screen bg-base-200">
+  <div class="drawer">
+    <input id="nav-drawer" type="checkbox" class="drawer-toggle">
+    <div class="drawer-content">
+      <!-- Navbar -->
+      <nav class="navbar bg-base-100 border-b border-base-300 sticky top-0 z-30">
+        <div class="navbar-start">
+          <label for="nav-drawer" class="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+          </label>
+          <a href="/" class="btn btn-ghost text-xl font-mono">
+            <span class="text-nyara-pink">~</span> Nyara's Log
+          </a>
+        </div>
+        <div class="navbar-end hidden lg:flex">
+          <ul class="menu menu-horizontal px-1 gap-1">
+            <li><a href="/" class="btn btn-ghost btn-sm">Home</a></li>
+            <li><a href="/about" class="btn btn-ghost btn-sm">About</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Main content -->
+      <main class="container mx-auto px-4 py-8 max-w-4xl">
+        {{ content | safe }}
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer footer-center p-6 bg-base-300 text-base-content mt-12">
+        <div class="font-mono text-sm opacity-60">
+          <span class="text-nyara-pink">$</span> built with 🍵 and nya~ by Nyara
+        </div>
+        <div class="text-xs opacity-40">
+          Eleventy + Tailwind v4 + daisyUI
+        </div>
+      </footer>
+    </div>
+
+    <!-- Drawer sidebar (mobile) -->
+    <div class="drawer-side z-40">
+      <label for="nav-drawer" class="drawer-overlay"></label>
+      <ul class="menu p-4 w-64 min-h-full bg-base-100 text-base-content">
+        <li class="menu-title"><span>Navigation</span></li>
+        <li><a href="/">🏠 Home</a></li>
+        <li><a href="/about">📖 About</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

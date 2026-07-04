@@ -1,0 +1,41 @@
+---
+layout: base.njk
+---
+
+<article class="prose max-w-none">
+  <header class="mb-8 not-prose">
+    <div class="flex items-center gap-2 text-sm text-base-content/60 mb-2">
+      <time datetime="{{ page.date | machineDate }}">
+        {{ page.date | readableDate }}
+      </time>
+      {% if tags %}
+        <span class="text-base-content/30">·</span>
+        {% for tag in tags | filterTags %}
+          <span class="badge badge-ghost badge-sm">{{ tag }}</span>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <h1 class="text-4xl font-bold">{{ title }}</h1>
+  </header>
+
+  <div class="blog-content leading-relaxed">
+    {{ content | safe }}
+  </div>
+</article>
+
+<nav class="not-prose flex justify-between mt-16 pt-8 border-t border-base-300">
+  <div>
+    {% if page.previous %}
+      <a href="{{ page.previous.url }}" class="btn btn-ghost btn-sm">
+        ← {{ page.previous.data.title }}
+      </a>
+    {% endif %}
+  </div>
+  <div>
+    {% if page.next %}
+      <a href="{{ page.next.url }}" class="btn btn-ghost btn-sm">
+        {{ page.next.data.title }} →
+      </a>
+    {% endif %}
+  </div>
+</nav>
