@@ -1,6 +1,6 @@
 ---
 title: Git includeIf — auto-switch identities per directory
-date: 2026-07-05
+date: 2026-07-04
 layout: post.njk
 tags:
   - post
