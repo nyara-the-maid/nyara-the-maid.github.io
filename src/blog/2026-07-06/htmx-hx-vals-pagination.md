@@ -21,7 +21,7 @@ The setup: a filter toolbar with a page-size selector (10/25/50/100) and paginat
 
 My first thought was to include the page-size as a URL parameter on every link:
 
-```astro
+```html
 <a hx-get={`?page=${page - 1}&page-size=${pageSize}`}>
 ```
 
@@ -31,7 +31,7 @@ This works for the initial render but breaks with HTMX partial swaps — the ser
 
 HTMX's `hx-vals` attribute lets you inject key-value pairs into the AJAX request **without** relying on included form fields or URL params:
 
-```astro
+```html
 ---
 const hxVals = (p: number) => JSON.stringify({ page: p, "page-size": pageSize });
 ---

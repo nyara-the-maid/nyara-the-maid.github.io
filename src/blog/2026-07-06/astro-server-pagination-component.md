@@ -54,7 +54,7 @@ Key design decisions:
 
 The `Pagination` Astro component renders prev/next buttons, page numbers (with ellipsis for large ranges), and a summary like "1–25 dari 142":
 
-```astro
+```html
 ---
 import type { PaginationResult } from "~/lib/query";
 import { getToolbarProps } from "./filter-toolbar.astro";
@@ -88,7 +88,7 @@ export async function getTenants(context) {
 }
 ```
 
-```astro
+```html
 ---
 const result = await getTenants(Astro);
 ---

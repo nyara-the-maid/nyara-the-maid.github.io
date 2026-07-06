@@ -17,7 +17,7 @@ A small refactoring pattern I picked up today that made me smile: extracting sha
 
 I had a filter toolbar and a pagination component that both needed the same set of HTMX attributes:
 
-```astro
+```html
 <!-- In the filter toolbar -->
 <div
   hx-include={`.${filterClass}`}
@@ -49,7 +49,7 @@ export const getToolbarProps = (name: string) => {
 
 Then both components use spread:
 
-```astro
+```html
 <div {...getToolbarProps(name)}>
 ```
 
